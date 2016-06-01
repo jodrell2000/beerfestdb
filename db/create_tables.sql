@@ -61,10 +61,11 @@ CREATE TABLE `cask` (
   `gyle_id` int(6) NOT NULL,
   `comment` text,
   `external_reference` varchar(255) DEFAULT NULL,
-  `is_vented` tinyint(1) DEFAULT NULL,
-  `is_tapped` tinyint(1) DEFAULT NULL,
-  `is_ready` tinyint(1) DEFAULT NULL,
-  `is_condemned` tinyint(1) DEFAULT '0', -- web json list drops this silently if NULL (a problem for our R code).
+  `is_cooled` datetime DEFAULT NULL, -- aded cooling in as a datetime field for the cellarman interface
+  `is_vented` datetime DEFAULT NULL, -- changed to a datetime field for the cellarman interface
+  `is_tapped` datetime DEFAULT NULL, -- changed to a datetime field for the cellarman interface
+  `is_ready` datetime DEFAULT NULL, -- changed to a datetime field for the cellarman interface
+  `is_condemned` datetime DEFAULT '0', -- web json list drops this silently if NULL (a problem for our R code).  -- changed to a datetime field for the cellarman interface
   `cask_management_id` int(6) NOT NULL,
   PRIMARY KEY (`cask_id`),
   UNIQUE KEY `cask_management` (`cask_management_id`),
